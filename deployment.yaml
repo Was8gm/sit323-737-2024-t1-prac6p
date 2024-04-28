@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task6
+  labels:
+    app: nginx
+spec:
+  replicas: 1  
+  selector:
+    matchLabels:
+      app: nodejs
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - name: web-1
+        image: samlee622/sit323_737-2024-t1-prac2p-web:task6p 
+        ports:
+        - containerPort: 3000 
